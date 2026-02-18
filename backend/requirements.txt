@@ -4,3 +4,5 @@ motor
 pydantic
 pydantic[email]
 email-validator
+fastapi
+uvicorn
