@@ -1,5 +1,5 @@
 // const API_URL = "http://localhost:8000"; // replace with deployed backend URL
-const API_URL = "http://127.0.0.1:8000"; // or http://localhost:8000
+const API_URL = "https://hrms-lite-57pw.onrender.com"; // deployed backend URL
 
 export async function getEmployees() {
   const res = await fetch(`${API_URL}/employees`);
