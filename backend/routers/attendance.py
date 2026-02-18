@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 # from ..schemas import AttendanceCreate, AttendanceOut
-from backend.schemas import AttendanceCreate, AttendanceOut
+from ..schemas import AttendanceCreate, AttendanceOut
 from ..services import AttendanceService
 
 router = APIRouter(prefix="/attendance", tags=["Attendance"])

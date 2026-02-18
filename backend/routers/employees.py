@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 # from ..schemas import EmployeeCreate, EmployeeOut
-from backend.schemas import EmployeeCreate, EmployeeOut
+from ..schemas import EmployeeCreate, EmployeeOut
 from ..services import EmployeeService
 
 router = APIRouter(prefix="/employees", tags=["Employees"])
