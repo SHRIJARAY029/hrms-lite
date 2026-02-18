@@ -8,7 +8,7 @@
 # app.include_router(attendance.router)
 
 from fastapi import FastAPI
-from .routers import employees, attendance
+from backend.routers import employees, attendance
 from fastapi.middleware.cors import CORSMiddleware
 
 
