@@ -26,3 +26,8 @@ cd hrms-lite
 
 # Start containers
 docker-compose up --build
+
+Live Application URL - https://hrms-lite-57pw.onrender.com/
+
+GitHub Repository Link - https://github.com/SHRIJARAY029/hrms-lite/
+
