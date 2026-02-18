@@ -1,0 +1,51 @@
+# version: "3.9"
+
+# services:
+  # backend:
+  #   build:
+  #     context: .
+  #     dockerfile: backend.Dockerfile
+  #   container_name: hrms-backend
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - MONGO_URL=mongodb+srv://shrijaray_db_user:aL0Mg6p2gkJHthLL@hrms-cluster.igoojys.mongodb.net/?appName=hrms-cluster&retryWrites=true&w=majority
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: frontend.Dockerfile
+  #   container_name: hrms-frontend
+  #   ports:
+  #     - "5173:5173"
+  #   depends_on:
+  #     - backend
+
+version: "3.9"
+
+services:
+  backend:
+    image: python:3.11-slim
+    container_name: hrms-backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             uvicorn main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URL=mongodb+srv://shrijaray_db_user:aL0Mg6p2gkJHthLL@hrms-cluster.igoojys.mongodb.net/?appName=hrms-cluster&retryWrites=true&w=majority
+
+  frontend:
+    image: node:20-alpine
+    container_name: hrms-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: >
+      sh -c "npm install && npm run build && npx serve -s dist -l 5173"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
