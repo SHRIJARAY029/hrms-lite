@@ -2,9 +2,9 @@
 FROM node:20-alpine AS frontend-build
 WORKDIR /frontend
 COPY frontend/package*.json ./
-RUN npm install
+RUN npm ci
 COPY frontend/ .
-RUN npm run build
+RUN chmod +x node_modules/.bin/* && npm run build
 
 # Stage 2: Backend + serve frontend
 FROM python:3.11-slim
